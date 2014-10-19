@@ -1,3 +1,7 @@
+/*
+ *this is a Two-way linked list
+*/
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <malloc.h>
