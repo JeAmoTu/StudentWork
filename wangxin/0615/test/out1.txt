@@ -1,0 +1,13 @@
+please input the people's 'name' 'age' 'gender':
+name: age: gender(man:1 woman: 0): 
+input info:    name: wangxin   age:20
+
+please input the people's 'name' 'age' 'gender':
+name: age: gender(man:1 woman: 0): 
+input info:    name: wangxin1   age:22
+
+please input the people's 'name' 'age' 'gender':
+name: age: gender(man:1 woman: 0): 
+input info:    name: shaowenjun   age:18
+
+agerave age is 20

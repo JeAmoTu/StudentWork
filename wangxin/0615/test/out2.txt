@@ -1,0 +1,21 @@
+please input how many numbers you want input: 
+num1: num1's fac is 1
+
+num2: num2's fac is 2
+
+num3: num3's fac is 6
+
+num4: num4's fac is 24
+
+num5: num5's fac is 120
+
+num6: num6's fac is 720
+
+num7: num7's fac is 5040
+
+num8: num8's fac is 40320
+
+num9: num9's fac is 362880
+
+num10: num10's fac is 1
+

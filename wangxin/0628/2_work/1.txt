@@ -1,0 +1,85 @@
+int delete(int fd)
+{
+	int i;
+	int count;
+	int length;
+	int feedback;
+	int sign = 0;
+	char name[20];
+	student_info_t temp_stu;
+
+	printf("please input a name for delete:\n");
+	feedback = scanf("%s", name);
+	if(feedback < 0)
+	{
+		setbuf(stdin, NULL);
+		perror(strerror(errno));
+		return FAIL;
+	}
+
+	length = lseek(fd, 0, SEEK_END);
+	if(length < 0)
+	{
+		perror(strerror(errno));
+		return FAIL;
+	}
+	count = length/INFO_SIZE;
+	student_info_t student[count];
+	
+	feedback = lseek(fd, 0, SEEK_SET);
+	if(feedback < 0)
+	{
+		perror(strerror(errno));
+		return FAIL;
+	}
+
+	for(i = 0; i < count; i++)
+	{
+		memset(&student[i], 0, INFO_SIZE);
+
+		feedback = read(fd, &student[i], INFO_SIZE);
+		if(feedback < 0)
+		{
+			perror(strerror(errno));
+			return FAIL;
+		}
+	}
+
+	close(fd);
+	fd = open("student_info.db", O_RDWR|O_TRUNC);
+	if(fd < 0)
+	{
+		perror(strerror(errno));
+		return 0;
+	}
+
+	for(i = 0; i < count; i++)
+	{
+		if(0 == strcmp(student[i].name, name))
+		{
+			printf("delete:\n");
+			printf("name: %s\nage: %d\ngender: %c\n", student[i].name, student[i].age, student[i].gender);
+			sign = 1;
+		}
+		else
+		{
+			feedback = write(fd, &student[i], INFO_SIZE);
+			if(feedback < 0)
+			{
+				perror(strerror(errno));
+				return FAIL;
+			}
+		}
+	}
+
+	if(0 == sign)
+	{
+		printf("can't find the student named %s\n", name);
+		return FAIL;
+	}
+	else
+	{
+		printf("delete success\n");
+		return SUCCESS;
+	}
+}
