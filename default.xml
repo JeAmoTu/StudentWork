@@ -3,6 +3,6 @@
       <default revision="master" remote="Victor" />
       
       <remote  name="Victor"
-               fetch="." />
+               fetch="https://github.com/wangxin380356258/Victor" />
       <project path="wangxin" name="0505" />
     </manifest>
