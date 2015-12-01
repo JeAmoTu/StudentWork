@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+    <manifest>
+      <default revision="master" remote="origin" />
+      
+      <remote  name="origin"
+               fetch="." />
+      <project path="wangxin" name="0505" />
+    </manifest>
